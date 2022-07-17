@@ -1,0 +1,173 @@
+1. print unit digit of a given number
+
+#include<stdio.h>
+int main(){
+
+  int x;
+  printf("enter a no.--");
+  scanf("%d",&x);
+  x=x%10;
+  printf("unit digit of given no. is  %d",x);
+}
+
+2. print a given number without its last digit.
+
+#include<stdio.h>
+int main(){
+
+  int x;
+  printf("enter a no.--");
+  scanf("%d",&x);
+  x=x/10;
+  printf("without last digit of given no. is  %d",x);
+}
+
+3. swap values of two int variables
+
+#include<stdio.h>
+int main(){
+
+  int x,y,z;
+  printf("enter two no.--");
+  scanf("%d%d",&x,&y);
+  printf("given value x= %d , y= %d",x,y);
+  z=x;
+  x=y;
+  y=z;
+  printf("\nswaped value is x= %d , y=%d",x,y);
+}
+
+4. swap values of two int variables without using a third variable.
+
+#include<stdio.h>
+int main(){
+
+  int x,y;
+  printf("enter two no.--");
+  scanf("%d%d",&x,&y);
+  printf("given value x= %d , y= %d",x,y);
+  x=x+y;
+  y=x-y;
+  x=x-y;
+  printf("\nswaped value is x= %d , y=%d",x,y);
+}
+
+5. input a three-digit number and display the sum of the digits.
+
+#include<stdio.h>
+int main(){
+
+  int x,s=0;
+  printf("enter a Three digit no no.--");
+  scanf("%d",&x);
+  s=s+x%10;
+  x=x/10;
+  s=s+x%10;
+  x=x/10;
+  s=s+x%10;
+  x=x/10;
+  printf("\nThe sum of given no is-- %d",s);
+}
+
+6. takes a character as an input and displays its ASCII code.
+
+#include<stdio.h>
+int main(){
+
+  char c;
+  printf("enter a character-- ");
+  scanf("%c",&c);
+  printf("the ASCII code of %c is %d",c,c);
+}
+
+
+7. to find the position of first 1 in LSB.
+
+#include<stdio.h>
+int main(){
+  int x,r=0,c=0;
+  printf("enter a no--");
+  scanf("%d",&x);
+  while(x!=0){
+   r=x&1;
+   c++;
+   if(r==1){
+    printf("1 is place in position %d",c);
+    break;
+   }
+   x=x>>1;
+  }
+}
+
+
+8. check whether the given number is even or odd using a bitwise
+operator.
+
+#include<stdio.h>
+int main(){
+
+  int x,r;
+  printf("enter a no");
+  scanf("%d",&x);
+  r=x&1;
+  if (r==1)
+    printf("given no %d is odd",x);
+  else
+    printf("given no %d is even",x);
+}
+
+
+9. print size of an int, a float, a char and a double type variable
+
+#include<stdio.h>
+int main(){
+ int x;
+ float y;
+ char z;
+ double d;
+ printf("Size of int is %d\n",sizeof(x));
+ printf("Size of float is %d\n",sizeof(y));
+ printf("Size of char is %d\n",sizeof(z));
+ printf("Size of double is %d",sizeof(d));
+}
+
+10.- if x=2345 then make it x=2340)
+
+#include<stdio.h>
+int main(){
+ int x;
+ printf("enter a no.");
+ scanf("%d",&x);
+ x=x/10*10;
+ printf("%d",x);
+
+}
+11. #include<stdio.h>
+int main(){
+   int D,N;
+    printf("enter a number\n");
+    scanf("%d",&N);
+    printf("enter a digit\n");
+    scanf("%d",&D);
+    printf("Entered number= %d\n",N);
+    printf("Entered Digit= %d\n",D);
+    N=(N*10)+D;
+    printf("New Number is %d",N);
+}
+
+12. 1 USD is INR 76.23. Write a program to take the amount in INR and
+convert it into USD.
+
+
+#include<stdio.h>
+int main(){
+   int am;
+   float usd;
+   printf("enter amount in INR");
+   scanf("%d",&am);
+   usd=am/76.23;
+   printf("%d INR is = %.2f",am,usd);
+}
+
+13. to take a three-digit number from the user and rotate its digits by
+one position towards the right.

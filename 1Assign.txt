@@ -1,0 +1,110 @@
+1.
+#include<stdio.h>
+int main(){
+  printf("hello Student");
+}
+
+2.
+#include<stdio.h>
+int main(){
+  printf("hello\nStudent");
+}
+
+3. 
+#include<stdio.h>
+int main(){
+  printf("\"MySirG\"");
+}
+
+4. the area of the circle.
+
+#include<stdio.h>
+int main(){
+  int r,a,pi=3.14;
+  printf("Enter radius-");
+  scanf("%d",&r);
+  a=pi*r*r;
+  printf("Area of Circle is - %d",a);
+}
+
+5.the length of String using printf function.
+
+#include<stdio.h>
+int main(){
+ int x=printf("hello");
+ printf("\nlength of string is  %d",x);
+}
+
+6. output format – “Hello , Amit Kumar”
+
+#include<stdio.h>
+int main(){
+ char x[20];
+ printf("please enter your name");
+ scanf("%s",&x);
+ printf("\"hello , %s \"",x);
+}
+
+
+7. print “%d” on the screen.
+
+#include<stdio.h>
+int main(){
+ int x;
+ printf("%%d",x);
+}
+
+
+8. print “\n” on the screen.
+
+#include<stdio.h>
+int main(){
+ int x;
+ printf("\\n",x);
+
+}
+
+9. “\\” on the screen.
+
+#include<stdio.h>
+int main(){
+ int x;
+ printf("\\\\",x);
+
+}
+
+10. User Input date format – “DD/MM/YYYY” (27/11/2022)
+Output format –
+“Day – DD , Month – MM , Year – YYYY” (Day – 27 ,Month – 07 , Year – 2022)
+
+#include<stdio.h>
+int main(){
+ int d,m,y;
+ printf("Please enter date in DD/MM/YYYY formate-");
+ scanf("%d/%d/%d",&d,&m,&y);
+ printf("day-%d,month-%d,year-%d",d,m,y);
+
+}
+
+11. User Input date format – “HH:MM”
+Output format – “HH hour and MM Minute”
+
+#include<stdio.h>
+int main(){
+ int h,m;
+ printf("Please enter time in HH:MM formate-");
+ scanf("%d/%d/",&h,&m);
+ printf("%d hour and %d minute",h,m);
+
+}
+
+12. 
+#include<stdio.h>
+int main()
+{
+int x = printf("ineuron");
+printf("%d",x);
+return 0;
+}
+OUTPUT:--ineuron7
+ 
