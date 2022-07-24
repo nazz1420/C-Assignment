@@ -1,0 +1,200 @@
+1. calculate sum of first N natural numbers
+
+
+#include <stdio.h>
+
+int main()
+{
+   int n,i,s=0;
+   printf("enter a no");
+   scanf("%d",&n);
+   for (i=1;i<=n;i++){
+    s=s+i;
+   }
+   printf("the sum of %d natural no is-->%d",n,s);
+}
+
+
+2. calculate sum of first N even natural numbers
+
+
+
+#include <stdio.h>
+
+int main()
+{
+   int n,i,s=0;
+   printf("enter a no");
+   scanf("%d",&n);
+   for (i=1;i<=2*n;i++){
+        if (i%2==0){
+                s=s+i;
+
+        }
+   }
+    printf("the sum of %d even natural no is-->%d",n,s);
+
+}
+
+
+3. calculate sum of first N odd natural numbers
+
+
+#include <stdio.h>
+
+int main()
+{
+   int n,i,s=0;
+   printf("enter a no");
+   scanf("%d",&n);
+   for (i=1;i<=2*n;i++){
+        if (i%2!=0){
+                s=s+i;
+
+        }
+   }
+    printf("the sum of %d odd natural no is-->%d",n,s);
+
+}
+
+4. calculate sum of squares of first N natural numbers
+
+#include <stdio.h>
+
+int main()
+{
+   int n,i,s=0;
+   printf("enter a no");
+   scanf("%d",&n);
+   for (i=1;i<=n;i++){
+         s=s+i*i;
+
+        }
+  printf("the sum of squares of %d natural no is-->%d",n,s);
+
+}
+
+
+5.  calculate sum of cubes of first N natural numbers
+
+
+#include <stdio.h>
+
+int main()
+{
+   int n,i,s=0;
+   printf("enter a no");
+   scanf("%d",&n);
+   for (i=1;i<=n;i++){
+         s=s+i*i*i;
+
+        }
+  printf("the sum of squares of %d natural no is-->%d",n,s);
+
+}
+
+
+6.  calculate factorial of a number
+
+#include <stdio.h>
+
+int main()
+{
+   int n,i,f=1;
+   printf("enter a no");
+   scanf("%d",&n);
+   for (i=1;i<=n;i++){
+          f=f*i;
+        }
+  printf("the factorial of %d is-->%d",n,f);
+
+}
+
+
+7.  count digits in a given number
+
+
+#include <stdio.h>
+
+int main()
+{
+   int n,c=0;
+   printf("enter a no");
+   scanf("%d",&n);
+  while(n!=0){
+          c++;
+          n=n/10;
+        }
+  printf("the digits in a %d no is-->%d",n,c);
+
+}
+
+8. check whether a given number is a Prime number or not
+
+
+#include <stdio.h>
+
+int main()
+{
+   int n,i,c=0;
+   printf("enter a no");
+   scanf("%d",&n);
+  for (i=2;i<n;i++){
+    if(n%i==0){
+       c++;
+       break;
+   }
+  }
+  if(c==1){
+    printf("%d is Not a prime no",n);
+  }
+  else{
+    printf("%d is a prime no",n);
+  }
+
+}
+
+
+
+9.  calculate LCM of two numbers
+
+
+#include <stdio.h>
+
+int main()
+{
+   int a,b,l;
+   printf("enter Two no");
+   scanf("%d%d",&a,&b);
+   for(l=a>b?a:b; l<=a*b; l++){
+        if (l%a==0&&l%b==0){
+          printf("the LCM of %d and %d is %d",a,b,l);
+          break;
+        }
+   }
+
+}
+
+
+10.  reverse a given number
+
+
+#include <stdio.h>
+
+int main()
+{
+   int a,n,rem,rev=0;
+   printf("enter a no");
+   scanf("%d",&a);
+   n=a;
+   while(n!=0){
+    rem=n%10;
+    rev=rev*10+rem;
+    n=n/10;
+   }
+   printf("the reverse of %d is-->  %d",a,rev);
+
+}
+
+
+
