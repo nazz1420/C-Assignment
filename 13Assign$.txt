@@ -1,0 +1,219 @@
+1. calculate sum of first N natural numbers
+
+
+#include<stdio.h>
+int sum(int);
+main(){
+ int n,s;
+ printf("enter a no");
+ scanf("%d",&n);
+ s=sum(n);
+ printf("%d",s);
+}
+int sum(int n){
+    int s;
+ if(n==1)
+    return 1;
+ s=n+sum(n-1);
+ return s;
+
+}
+
+2. sum of first N odd natural numbers
+
+#include<stdio.h>
+int sum(int);
+main(){
+ int n,s;
+ printf("enter a no");
+ scanf("%d",&n);
+ s=sum(n);
+ printf("%d",s);
+}
+int sum(int n){
+    int s;
+ if(n==1)
+    return 1;
+ s=(2*n-1)+sum(
+               n-1);
+ return s;
+
+}
+
+
+3. sum of first N even natural numbers
+
+#include<stdio.h>
+int sum(int);
+main(){
+ int n,s;
+ printf("enter a no");
+ scanf("%d",&n);
+ s=sum(n);
+ printf("%d",s);
+}
+int sum(int n){
+    int s;
+ if(n==1)
+    return 2;
+ s=(2*n)+sum(n-1);
+ return s;
+
+}
+
+
+4. sum of squares of first n natural numbers
+
+#include<stdio.h>
+int sum(int);
+main(){
+ int n,s;
+ printf("enter a no");
+ scanf("%d",&n);
+ s=sum(n);
+ printf("%d",s);
+}
+int sum(int n){
+    int s;
+ if(n==1)
+    return 1;
+ s=(n*n)+sum(n-1);
+ return s;
+
+}
+
+5. sum of digits of a given number
+ 
+
+#include<stdio.h>
+int fact(int);
+main(){
+ int n,s;
+ printf("enter a no");
+ scanf("%d",&n);
+ s=fact(n);
+ printf("%d",s);
+}
+int fact(int n){
+    int s=0,sum;
+ if(n==0)
+    return n%10;
+ s=s+(n%10);
+ sum=s+fact(n/10);
+
+ return sum;
+
+}
+
+6. factorial of a given number
+
+
+#include<stdio.h>
+int fact(int);
+main(){
+ int n,s;
+ printf("enter a no");
+ scanf("%d",&n);
+ s=fact(n);
+ printf("%d",s);
+}
+int fact(int n){
+    int s;
+ if(n==1)
+    return 1;
+ s=n*fact(n-1);
+ return s;
+
+}
+
+
+7. calculate HCF of two numbers
+
+
+#include<stdio.h>
+int hcf(int, int);
+main(){
+ int a,b,i;
+ printf("enter a no");
+ scanf("%d%d",&a,&b);
+ i=hcf(a,b);
+ printf("%d",i);
+}
+int hcf(int a, int b){
+    if(a==b)
+      return a;
+    if(a%b==0)
+        return b;
+    if(b%a==0)
+        return a;
+    if (a>b)
+     return hcf(a%b,b);
+    else
+     return  hcf(a,b%a);
+}
+
+8.  print first N terms of Fibonacci series
+
+#include<stdio.h>
+int fibo(int);
+main(){
+ int n,i;
+ printf("enter a no");
+ scanf("%d",&n);
+ for (i=1;i<=n;i++)
+    printf("%d ",fibo(i));
+
+}
+int fib(int n){
+    if((n==1)||(n==2))
+     return 1;
+    return fibo(n-1)+fibo(n-2);
+
+}
+
+9. to count the digits of a given number
+
+#include<stdio.h>
+int count(int);
+main(){
+ int a,i;
+ printf("enter a no");
+ scanf("%d",&a);
+ i=count(a);
+ printf("%d",i);
+}
+int count(int a){  
+ static int c=0;
+  if (a==0){
+    return c;
+  }
+  else
+  {
+      c++;
+    return count(a/10);
+  }
+OR
+ if(a<10)
+     return 1;
+   return 1+count(a/10);
+
+
+10.  calculate the power of any number using recursion.
+
+
+#include<stdio.h>
+int power(int , int);
+main(){
+    int b,p,r;
+    printf("enter base no");
+    scanf("%d",&b);
+    printf("enter power");
+    scanf("%d",&p);
+    r=power(b,p);
+    printf("%d",r);
+}
+int power(int b, int p){
+      if(p==0)
+        return 1;
+      return b*power(b,p-1);
+}
