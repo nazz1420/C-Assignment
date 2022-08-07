@@ -1,0 +1,176 @@
+1. sum of numbers stored in an array of size 10.
+
+
+
+#include<stdio.h>
+main(){
+    int a[10],s=0,i;
+    printf("enter10 no");
+    for(i=0;i<10;i++){
+        scanf("%d",&a[i]);
+    }
+     for(i=0;i<10;i++)
+        s=s+a[i];
+     printf("sum of an array = %d",s);
+}
+
+
+2. average of numbers stored in an array of size 10.
+
+
+
+#include<stdio.h>
+main(){
+    int a[10],s=0,i,avg;
+    printf("enter 10 no");
+    for(i=0;i<10;i++){
+        scanf("%d",&a[i]);
+        s=s+a[i];
+    }
+    avg=s/10;
+    printf("average = %d",avg);
+}
+
+
+
+3. the sum of all even numbers and sum of all odd
+
+
+#include<stdio.h>
+main(){
+    int a[10],i,Osum=0,Esum=0;
+    printf("enter 10 no");
+    for(i=0;i<10;i++){
+        scanf("%d",&a[i]);
+        if(a[i]%2==0)
+            Esum=Esum+a[i];
+        else
+            Osum=Osum+a[i];
+    }
+    printf("Sum of even no = %d\n",Esum);
+    printf("Sum of odd no = %d",Osum);
+}
+
+4. greatest number stored in an array of size 10.
+  
+
+#include<stdio.h>
+main(){
+    int a[10],i;
+    printf("enter 10 no");
+    for(i=0;i<10;i++){
+        scanf("%d",&a[i]);
+        if(a[0]<a[i])
+            a[0]=a[i];
+    }
+    printf("greatest no of an array is - %d",a[0]);
+}
+
+
+5. find the smallest number stored in an array of size 10.
+
+
+#include<stdio.h>
+main(){
+    int a[10],i;
+    printf("enter 10 no");
+    for(i=0;i<10;i++){
+        scanf("%d",&a[i]);
+        if(a[0]>a[i])
+            a[0]=a[i];
+    }
+    printf("Smallest no of an array is - %d",a[0]);
+}
+
+
+6. sort elements of an array of size 10.
+
+
+#include<stdio.h>
+main(){
+    int a[10],i,j,Swap;
+    printf("enter 10 no");
+    for(i=0;i<10;i++)
+        scanf("%d",&a[i]);
+     for(i=0;i<9;i++){
+         for(j=i+1;j<10;j++){
+            if(a[i]>a[j]){
+                Swap=a[i];
+                a[i]=a[j];
+                a[j]=Swap;
+            }
+         }
+     }
+       for(i=0;i<10;i++)
+            printf("%d ",a[i]);
+}
+
+7. second largest in an array.
+
+#include<stdio.h>
+main(){
+    int a[10],i,j,Swap;
+    printf("enter 10 no");
+    for(i=0;i<10;i++)
+        scanf("%d",&a[i]);
+     for(i=0;i<9;i++){
+         for(j=i+1;j<10;j++){
+            if(a[i]>a[j]){
+                Swap=a[i];
+                a[i]=a[j];
+                a[j]=Swap;
+            }
+         }
+     }
+    printf("Second largest element of an array is - %d ",a[8]);
+}
+
+
+8. find the second smallest number in an array.
+
+#include<stdio.h>
+main(){
+    int a[10],i,j,Swap;
+    printf("enter 10 no");
+    for(i=0;i<10;i++)
+        scanf("%d",&a[i]);
+     for(i=0;i<9;i++){
+         for(j=i+1;j<10;j++){
+            if(a[i]>a[j]){
+                Swap=a[i];
+                a[i]=a[j];
+                a[j]=Swap;
+            }
+         }
+     }
+    printf("Second smallest element of an array is - %d ",a[1]);
+}
+
+
+9. n number of values in an array and display it in reverse
+
+
+#include<stdio.h>
+main(){
+    int a[10],i;
+    printf("enter 10 no");
+    for(i=0;i<10;i++)
+        scanf("%d",&a[i]);
+    for(i=9;i>=0;i--)
+           printf("%d ",a[i]);
+     }
+
+10. copy the elements of one array into another array.
+
+
+#include<stdio.h>
+main(){
+    int a[10],b[10],i;
+    printf("enter 10 no");
+    for(i=0;i<10;i++)
+        scanf("%d",&a[i]);
+    for(i=0;i<10;i++){
+        b[i]=a[i];
+        printf("%d ",b[i]);
+     }
+}
