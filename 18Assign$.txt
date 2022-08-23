@@ -1,0 +1,265 @@
+1. Write a function to calculate length of the string
+
+
+#include<stdio.h>
+int length(char a[]);
+main(){
+    char a[50];
+    int l;
+ printf("enter your string\n");
+ l=length(a);
+ printf("The length of string is = %d",l);
+ }
+ int length(char a[]){
+    int i,count=-1;
+    fgets(a,50,stdin);
+    for(i=0;a[i];i++){
+        count++;
+    }
+    return count;
+ }
+
+2. Write a function to reverse a string.
+
+
+#include<stdio.h>
+int reverse(char a[]);
+main(){
+    char a[50];
+    printf("enter your string\n");
+    reverse(a);
+ }
+ int reverse(char a[]){
+    int i,n;
+    n=strlen(a);
+    fgets(a,50,stdin);
+    for(i=a[i];i>=0;i--){
+                printf("%c",a[i]);
+    }
+ }
+
+3. Write a function to compare two strings.
+
+
+#include<stdio.h>
+#include<string.h>
+int palindrome(char a[], char b[]);
+main(){
+    char a[50],b[50];
+    printf("enter your string\n");
+    palindrome(a,b);
+ }
+ int palindrome(char a[],char b[]){
+    int i=0;
+    scanf("%s",a);
+    scanf("%s",b);
+    while(a[i]==b[i]&&a[i]!='\0')
+       i++;
+    if(a[i]>b[i])
+        printf("1 first string is greater");
+    else if(a[i]==b[i])
+        printf("0 both are equal");
+    else
+        printf ("-1 second string is greater");
+        }
+
+
+
+4. Write a function to transform string into uppercase
+
+#include<stdio.h>
+int trans(char a[]);
+main(){
+    char a[50];
+    printf("enter your string\n");
+    trans(a);
+ }
+ int trans(char a[]){
+    int i,n;
+    n=strlen(a);
+    fgets(a,50,stdin);
+    for(i=0;a[i];i++){
+               if(a[i]>='a'||a[i]<='z'){
+                 a[i]=a[i]-32;
+               }
+
+    }
+    printf("transformed string - %s",a);
+ }
+
+
+5. transform a string into lowercase
+
+#include<stdio.h>
+int lower_trans(char a[]);
+main(){
+    char a[50];
+    printf("enter your string\n");
+    lower_trans(a);
+ }
+ int lower_trans(char a[]){
+    int i,n;
+    n=strlen(a);
+    fgets(a,50,stdin);
+    for(i=0;a[i];i++){
+               if(a[i]>='A'||a[i]<='Z'){
+                 a[i]=a[i]+32;
+               }
+
+    }
+    printf("transformed string - %s",a);
+ }
+ 
+
+6. check whether a given string is an alphanumeric string or not. 
+
+
+#include<stdio.h>
+void aplhanum(char a[]);
+main()
+    {
+       char a[50];
+       printf("enter your string");
+       alphanum(a);
+    }
+
+void alphanum(char a[]){
+     int i,alpha=0,num=0;
+     fgets(a,50,stdin);
+     for(i=0;a[i];i++){
+        if(a[i]>='a'&& a[i]<='z')
+            alpha++;
+        if(a[i]>='0'&& a[i]<='9')
+            num++;
+     }
+     if((alpha>0) && (num>0))
+        printf("string is alphanumaric");
+     else
+        printf("string is non-alphanumeric");
+
+}
+
+
+7. check whether a given string is palindrome or not.
+
+#include<stdio.h>
+#include<string.h>
+int palindrome(char a[]);
+main(){
+    char a[50];
+    int c;
+    printf("enter your string\n");
+    c=palindrome(a);
+    if(c)
+        printf("string is non-palindrome");
+    else
+       printf("string is palindrome");
+ }
+ int palindrome(char a[]){
+    int i,n,count=0;
+    scanf("%s",a);
+    n=strlen(a);
+    for(i=0;i<n;i++){
+        if(a[i]!=a[n-i-1]){
+            count=1;
+            break;
+        }
+    }
+    return count;
+ }
+
+
+
+8. Write a function to count words in a given string
+
+#include<stdio.h>
+int totl_word(char a[]);
+main(){
+    char a[50];
+    int c;
+    printf("enter your string\n");
+    c=totl_word(a);
+    printf("total words in the string - %d",c);
+ }
+ int totl_word(char a[]){
+    int i,j,count=1;
+    fgets(a,50,stdin);
+    for(i=0;a[i];i++){
+            if(a[i]==' '){
+                count++;
+            }
+    }
+    return count;
+
+ }
+
+
+9.reverse a string word wise.
+
+include<stdio.h>
+#include<string.h>
+void swap(char [],int, int);
+main(){
+    int i=0,s=0,e=0,f=0;
+    char a[]="my name is nazz";
+    while(a[i]!='\0'){
+        while(a[i]!=' '){
+            if(a[i]=='\0'){
+                f=1;
+                break;
+            }
+            e++;
+            i++;
+        }
+        swap(a,s,e-1);
+        if(f == 1)
+           break;
+        s=e++;
+        i++;
+    }
+    swap(a,0,i-1);
+    printf("%s",a);
+   }
+   void swap(char a[],int i , int j){
+       char t;
+       while(i<=j){
+        t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+        i++;
+        j--;
+       }
+   }
+
+
+
+10.. find the repeated character in a given string.
+
+#include<stdio.h>
+int duplicate(char a[]);
+main(){
+    char a[50];
+    printf("enter your string\n");
+    duplicate(a);
+ }
+ int duplicate(char a[]){
+    int i,j,n,count;
+    fgets(a,50,stdin);
+    n=strlen(a);
+    for(i=0;i<n-1;i++){
+            count=1;
+            for(j=i+1;j<n;j++){
+              if(a[i]==a[j]&&a[i]!=' '){
+                count++;
+                a[j]='0';
+            }
+        }
+    if(count>1&&a[i]!='0')
+        printf("duplicate characters - %c\n",a[i]);
+   }
+ }
+
+
+
+
+
