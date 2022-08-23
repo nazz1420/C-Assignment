@@ -1,0 +1,247 @@
+1. count vowels in 2d array.
+
+#include<stdio.h>
+main(){
+int i,j,count,n,k;
+char b[]="aeiouAEIOU";
+char a[10][20];
+printf("how many names you want to print");
+scanf("%d",&n);
+printf("enter %d city name",n);
+for(i=0;i<=n;i++){
+ gets(a[i]);
+}
+for(i=0;i<=n;i++){
+        count=0;
+   for (j=0;j<20;j++){
+    for (k=0;k<10;k++){
+      if(a[i][j]==b[k]){
+        count++;
+      }
+    }
+  }
+   printf("total vowels in %s srting = %d\n",a[i],count);
+ }
+}
+
+2. sort 10 city names stored in two dimensional arrays.
+
+
+
+#include<stdio.h>
+void sort(char a[][20]);
+main()
+    {
+     char a[10][20];
+     printf("enter 10 cities name");
+     sort(a);
+    }
+    void sort(char a[][20]){
+        char t[20];
+        int i,j;
+     for(i=0;i<10;i++)
+        gets(a[i]);
+     for(i=0;i<9;i++){
+        for(j=i+1;j<10;j++){
+            if(strcmp(a[i],a[j])>0){
+                strcpy(t,a[i]);
+                strcpy(a[i],a[j]);
+                strcpy(a[j],t);
+            }
+        }
+     }
+     for(i=0;i<10;i++){
+        printf("%s\n",a[i]);
+     }
+
+}
+
+3.read and display a 2D array of strings in C language.
+
+
+#include<stdio.h>
+main(){
+int i,j,n;
+char a[10][20];
+printf("how many names you want to print");
+scanf("%d",&n);
+printf("enter %d strings",n);
+for(i=0;i<=n;i++){
+ gets(a[i]);
+}
+for(i=0;i<=n;i++)
+    printf("%s\n",a[i]);
+}
+
+
+4. to search a string in the list of strings.
+
+
+#include<stdio.h>
+main(){
+char a[10][50];
+char b[50]="Hello";
+int count=0,i,n;
+printf("how many string you want to print");
+scanf("%d",&n);
+printf("enter %d string",n);
+for(i=0;i<=n;i++)
+    gets(a[i]);
+for(i=0;i<=n;i++){
+      if(strcmp(b,a[i])==0)
+        count++;
+    }
+if(count>0)
+        printf("searched string found");
+else
+        printf("searched string not found");
+
+}
+
+
+5. whether all email addresses have ‘@’ in it. Print the odd email out.
+
+
+#include<stdio.h>
+main(){
+char a[5][20];
+int i;
+printf("enter 5 email");
+for(i=0;i<5;i++)
+    gets(a[i]);
+for(i=0;i<5;i++){
+        if(strchr(a[i],'@')==0)
+            printf("Invalid email--> %s\n",a[i]);
+     }
+}
+
+
+6. print the strings which are palindrome in the list of strings.
+
+
+#include<stdio.h>
+main(){
+int n,i,j;
+char a[5][10]={"lol","naman","abs","manasa","mom"};
+char b[5][10];
+n=strlen(a);
+for(i=0;i<5;i++)
+    strcpy(b[i],a[i]);
+for(i=0;i<5;i++)
+    strrev(a[i]);
+printf("Palindrome strings are-->\n");
+for(i=0;i<5;i++){
+    if(strcmp(a[i],b[i])==0)
+     printf("%s\n",a[i]);
+  }
+}
+
+
+7. check whether all ip addresses are valid.
+
+#include<stdio.h>
+main(){
+char a[]={"124.24.55.147"};
+char *b=strtok(a,".");
+while(b!=NULL){
+    int x =atoi(b);
+    if((x>=0&&x<=255))
+        printf("%d ",x);
+    b=strtok(NULL,".");
+
+        }
+   }
+
+8. calculate minimum distancebetween the given two words in the 
+list of words.
+
+#include<stdio.h>
+main(){
+    int i,c1=-1,c2=-1,min;
+   char w1[20] = "my";
+   char w2[20] = "mansury";
+   char b[6][50]={"hello","my","name","is"," nazneen","mansury"};;
+   for(i=0;i<6;i++){
+    if(strcmp(b[i],w1)==0)
+            c1=i;
+    if(strcmp(b[i],w2)==0)
+            c2=i;
+   if(c1 != -1 && c2 != -1){
+      min = abs(c2-c1);
+
+    }
+   }
+   printf("%d ",min-1);
+}
+
+
+
+
+9. check username and calculate factorial.
+
+
+#include<stdio.h>
+main(){
+    int n,f=1,i,c=0;
+   char a[20];
+   char b[5][50]={"nazneenmansury","monikamaratha","eliyasmansury","krishnagwala","minumansury"};;
+   printf("enter user-name\n");
+   gets(a);
+   for(i=0;i<5;i++){
+    if(strcmp(b[i],a)==0){
+            c++;
+            break;
+       }
+   }
+    if(c==1){
+            printf("enter a no to calculate factorial");
+            scanf("%d",&n);
+            for(i=1;i<=n;i++){
+                f=f*i;
+            }
+            printf("factorial = %d",f);
+
+       }
+       else
+        printf("invalid user-name");
+   }
+
+
+
+10. Create an authentication system. It should be menu driven.
+
+
+#include<stdio.h>
+#include<stdlib.h>
+main(){
+    int i,f=0,x;
+    printf("1. for login\n");
+    printf("2. for exit\n");
+    printf("enter your choice\n ");
+    scanf("%d",&x);
+    char u[50],p[50];
+    char a[4][2][50]={
+       {"nazz","1420"},{ "Nazz","2014"},
+       {"krish","36088"},{"moni","7431"},
+   };
+   switch(x){
+   case 1:
+   printf("enter username \n");
+   scanf("%s",&u);
+   printf("enter password\n ");
+   scanf("%s",&p);
+   for(i=0;i<4;i++){
+    if(strcmp(u,a[i][0]) == 0 && strcmp(p,a[i][1]) == 0 ){
+        printf("login succesfull ");
+        f=1;
+    }
+
+   }
+   if(f==0)
+    printf("invalid username or password");
+   case 2:
+    exit(0);
+   default:
+    printf("invalid choice");
+}
+}
