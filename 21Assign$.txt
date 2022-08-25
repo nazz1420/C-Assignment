@@ -1,0 +1,373 @@
+1. Define a structure Employee with member variables id,
+ name, salary.
+
+#include<stdio.h>
+struct Employee{
+  char e_name[30];
+  int e_id;
+  float e_salary;
+};
+main(){
+    struct Employee E;
+    printf("enter employee name ");
+    fflush(stdin);
+    fgets(E.e_name,30,stdin);
+    printf("enter employee id ");
+    scanf("%d",&E.e_id);
+    printf("enter employee salary");
+    scanf("%f",&E.e_salary);
+    printf("id = %d  name = %s  salary = %.1f ",E.e_id,E.e_name,E.e_salary);
+
+
+}
+
+
+
+2. take input employee data from the user.
+
+
+#include<stdio.h>
+struct Employee{
+  int e_id;
+  char e_name[30];
+  float e_salary;
+};
+struct Employee input(){
+    struct Employee E;
+    printf("Enter employee id ,name and salary");
+    scanf("%d",&E.e_id);
+    fflush(stdin);
+    fgets(E.e_name,30,stdin);
+    scanf("%f",&E.e_salary);
+}
+main(){
+    struct Employee E;
+    E=input();
+}
+
+
+3. Write a function to display employee data.
+
+
+#include<stdio.h>
+struct Employee{
+  int e_id;
+  char e_name[30];
+  float e_salary;
+};
+struct Employee input(){
+    struct Employee E;
+    printf("Enter employee id ,name and salary");
+    scanf("%d",&E.e_id);
+    fflush(stdin);
+    fgets(E.e_name,30,stdin);
+    E.e_name[strlen(E.e_name)-1]='\0';
+    scanf("%f",&E.e_salary);
+    return E;
+}
+void display(struct Employee E){
+    printf("Employee id= %d\nEmployee name= %s\nEmployee salary= %.1f",E.e_id,E.e_name,E.e_salary);
+}
+main(){
+    struct Employee E;
+    E=input();
+    display(E);
+}
+
+
+
+4. find the highest salary employee from a given array of 10
+employees.
+
+#include<stdio.h>
+struct Employee{
+  int e_id;
+  char e_name[30];
+  float e_salary;
+};
+struct Employee input(){
+    int i;
+    struct Employee E;
+    printf("Enter employee id ,name and salary");
+    scanf("%d",&E.e_id);
+    fflush(stdin);
+    fgets(E.e_name,30,stdin);
+    E.e_name[strlen(E.e_name)-1]='\0';
+    scanf("%f",&E.e_salary);
+    return E;
+    }
+void display(struct Employee E){
+   printf(" Employee id = %d  Name = %s  Salary = %f\n",E.e_id,E.e_name,E.e_salary);
+    }
+int sort(struct Employee E[],int size){
+   int i,j;
+   struct Employee t;
+   for(i=0;i<size;i++){
+    for(j=i+1;j<size-1;j++){
+        if ((E[i].e_salary < E[j].e_salary)){
+            t = E[i];
+            E[i] = E[j];
+            E[j] = t;
+     }
+    }
+   }
+}
+main(){
+    struct Employee E[10];
+    int i;
+    for(i=0;i<10;i++)
+       E[i]=input();
+   printf("\nEmployee with Highest salary  -->\n");
+   sort(E,10);
+   display(E[0]);
+}
+
+
+
+5.sort employees according to their salaries.
+
+#include<stdio.h>
+struct Employee{
+  int e_id;
+  char e_name[30];
+  float e_salary;
+};
+struct Employee input(){
+    int i;
+    struct Employee E;
+    printf("Enter employee id ,name and salary");
+    scanf("%d",&E.e_id);
+    fflush(stdin);
+    fgets(E.e_name,30,stdin);
+    E.e_name[strlen(E.e_name)-1]='\0';
+    scanf("%f",&E.e_salary);
+    return E;
+    }
+void display(struct Employee E){
+   printf(" Employee id = %d  Name = %s  Salary = %f\n",E.e_id,E.e_name,E.e_salary);
+    }
+int sort(struct Employee E[],int size){
+   int i,j;
+   struct Employee t;
+   for(i=1;i<size;i++){
+    for(j=0;j<size-i;j++){
+        if (E[j].e_salary > E[j+1].e_salary){
+            t = E[j];
+            E[j] = E[j+1];
+            E[j+1] = t;
+     }
+    }
+   }
+}
+main(){
+    struct Employee E[10];
+    int i,h;
+    for(i=0;i<10;i++)
+       E[i]=input();
+
+    for(i=0;i<10;i++)
+        display(E[i]);
+   printf("\nSorted data -->\n");
+    sort(E,10);
+    for(i=0;i<10;i++)
+        display(E[i]);
+
+
+}
+
+6. sort employees according to their names.
+
+
+#include<stdio.h>
+struct Employee{
+  int e_id;
+  char e_name[30];
+  float e_salary;
+};
+struct Employee input(){
+    int i;
+    struct Employee E;
+    printf("Enter employee id ,name and salary");
+    scanf("%d",&E.e_id);
+    fflush(stdin);
+    fgets(E.e_name,30,stdin);
+    E.e_name[strlen(E.e_name)-1]='\0';
+    scanf("%f",&E.e_salary);
+    return E;
+    }
+void display(struct Employee E){
+   printf(" Employee id = %d  Name = %s  Salary = %f\n",E.e_id,E.e_name,E.e_salary);
+    }
+int sort(struct Employee E[],int size){
+   int i,j;
+   struct Employee t;
+   for(i=0;i<size-1;i++){
+    for(j=i+1;j<size;j++){
+        if (strcmp(E[i].e_name,E[j].e_name)>0){
+            t = E[i];
+            E[i] = E[j];
+            E[j] = t;
+     }
+    }
+   }
+}
+main(){
+    struct Employee E[10];
+    int i,h;
+    for(i=0;i<10;i++)
+       E[i]=input();
+    for(i=0;i<10;i++)
+        display(E[i]);
+   printf("\nSorted data -->\n");
+    sort(E,10);
+    for(i=0;i<10;i++)
+        display(E[i]);
+}
+
+
+7. calculate the difference between two time periods.
+
+
+#include<stdio.h>
+struct Time{
+  int H,M,S;
+};
+void time_diff(struct Time t1,struct Time t2,struct Time *diff);
+main(){
+    struct Time s_time,e_time,diff;
+    printf("Enter start time in hour min and sec.");
+    scanf("%d %d %d",&s_time.H,&s_time.M,&s_time.S);
+    printf("Enter end time in hour min and sec.");
+    scanf("%d %d %d",&e_time.H,&e_time.M,&e_time.S);
+    time_diff(s_time, e_time ,&diff);
+    printf("Diffrence = %d : %d : %d",diff.H,diff.M,diff.S);
+
+}
+void time_diff(struct Time s_time,struct Time e_time, struct Time *diff){
+    while(e_time.S > s_time.S){
+        --s_time.M;
+        s_time.S+=60;
+    }
+    diff->S=s_time.S-e_time.S;
+    while(e_time.M > s_time.M){
+        --s_time.H;
+        s_time.M+=60;
+    }
+    diff->M=s_time.M-e_time.M;
+    diff->H=e_time.H-s_time.H;
+
+}
+
+
+
+8. store information of 10 students and display
+ them using structure.
+
+#include<stdio.h>
+struct Student{
+  int roll_no;
+  char name[30];
+  int Class;
+};
+struct Student input(){
+    int i;
+    struct Student S;
+    printf("Enter Student roll no ,name and class");
+    scanf("%d",&S.roll_no);
+    fflush(stdin);
+    fgets(S.name,30,stdin);
+    S.name[strlen(S.name)-1]='\0';
+    scanf("%d",&S.Class);
+    return S;
+    }
+void display(struct Student S){
+   printf(" Student id = %d  Name = %s  Salary = %f\n",S.roll_no,S.name,S.Class);
+    }
+main(){
+    struct Student S[10];
+    int i;
+    for(i=0;i<10;i++)
+       S[i]=input();
+    for(i=0;i<10;i++)
+        display(S[i]);
+
+}
+
+
+
+9.  store information of n students and display them using structure
+
+#include<stdio.h>
+struct Student{
+  int roll_no;
+  char name[30];
+  int Class;
+};
+struct Student input(){
+    struct Student S;
+    scanf("%d",&S.roll_no);
+    fflush(stdin);
+    fgets(S.name,30,stdin);
+    S.name[strlen(S.name)-1]='\0';
+    scanf("%d",&S.Class);
+    return S;
+    }
+void display(struct Student S){
+   printf(" Student roll_no = %d  Name = %s  class = %d\n",S.roll_no,S.name,S.Class);
+    }
+main(){
+    int i,n;
+    printf("enter no of students you want to display ");
+    scanf("%d",&n);
+    printf("Enter %d Student roll no ,name and class\n",n);
+    struct Student S[n];
+    for(i=0;i<n;i++)
+       S[i]=input();
+    for(i=0;i<n;i++)
+        display(S[i]);
+
+}
+
+
+10. then display the percentage of each student.
+
+#include<stdio.h>
+struct Student{
+  int roll_no;
+  char name[30];
+  float m_chem, m_maths, m_phy;
+};
+struct Student input(){
+    struct Student S;
+    scanf("%d",&S.roll_no);
+    fflush(stdin);
+    fgets(S.name,30,stdin);
+    S.name[strlen(S.name)-1]='\0';
+    scanf("%f %f %f",&S.m_chem,&S.m_maths,&S.m_phy);
+    return S;
+    }
+void display(struct Student S){
+   printf(" Student roll_no = %d  Name = %s  mark of chem = %.2f  mark of maths = %.2f  mark of phy = %.2f\n",S.roll_no,S.name,S.m_chem,S.m_maths,S.m_phy);
+    }
+void percentage(struct Student S[],int size){
+    int i;
+    float per;
+    for(i=0;i<5;i++){
+        per = (S[i].m_chem + S[i].m_maths + S[i].m_phy)/3;
+        printf("\npercentage of student %d is --> %.2f",i+1,per);
+     }
+}
+main(){
+    int i;
+    printf("Enter 5 Students roll no ,name and and marksof chem,phy,and maths\n");
+    struct Student S[5];
+    for(i=0;i<5;i++)
+       S[i]=input();
+    for(i=0;i<5;i++)
+        display(S[i]);
+    percentage(S,5);
+}
+
+
+
+
