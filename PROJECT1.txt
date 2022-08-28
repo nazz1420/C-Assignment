@@ -1,0 +1,223 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+#include <string.h>
+#include <windows.h>
+
+
+
+#define ANSI_COLOR_RED "\x1b[31m"
+#define ANSI_COLOR_GREEN "\x1b[32m"
+#define ANSI_COLOR_YELLOW "\x1b[33m"
+#define ANSI_COLOR_BLUE "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN "\x1b[36m"
+#define ANSI_COLOR_RESET "\x1b[0m"
+int main(){
+  int a[4][4],i;
+  int maxtry =100;
+  char name[30];
+  printf(" Enter Player Name : ");
+  scanf("%s",name);
+  system("cls");
+  while(1){
+  createMatrix(a);
+  gameRule(a);
+    while(!winner(a)){
+        system("cls");
+        if(!maxtry)
+            break;
+        printf("\n\n  Player Name:  %s ,  Move remaining : %d\n\n", name, maxtry);
+        showMatrix(a);
+        int x=enterdkey();
+        switch(x){
+          case 101:
+          case 69:
+                printf(ANSI_COLOR_GREEN"\n      Thanks for Playing !\n"ANSI_COLOR_RESET);
+                printf("\nHit 'Enter' to exit the game \n");
+                x = enterdkey();
+                return 0;
+          case 72:
+            if(shiftUp(a))
+                maxtry--;
+            break;
+          case 80:
+            if(shiftDown(a))
+                maxtry--;
+            break;
+          case 77:
+            if(shiftRight(a))
+                maxtry--;
+            break;
+          case 75:
+            if(shiftLeft(a))
+                maxtry--;
+            break;
+          default:
+            printf(" NOT Allow");
+        }
+    }
+    if(!maxtry)
+        printf(ANSI_COLOR_RED"\n\a          YOU LOSE !          \a\a\n"ANSI_COLOR_RESET);
+    else
+        printf(ANSI_COLOR_GREEN"\n\a!!!!!!!!!!!!!Congratulations  %s for winning this game !!!!!!!!!!!!!\n\a"ANSI_COLOR_RESET, name);
+
+  fflush(stdin);
+  char ch;
+  printf(ANSI_COLOR_GREEN "\n if you want to play again -----> enter 'y' \n"ANSI_COLOR_RESET);
+  scanf("%c",&ch);
+  if(ch!='y' && ch!='Y')
+    break;
+  maxtry = 100;
+  }
+}
+void createMatrix(int a[][4]){
+ int n=15,i,j,num[n];
+ for(i=0;i<n;i++)
+    num[i]=i+1;
+ srand(time(NULL));
+ int lastindex=n-1,index;
+ for(i=0;i<4;i++)
+ for(j=0;j<4;j++){
+    if(lastindex>=0){
+        index=rand() % (lastindex+1);
+        a[i][j]=num[index];
+        num[index]=num[lastindex--];
+    }
+ }
+a[i-1][j-1]=0;
+}
+void gameRule(int a[][4]){
+    int i,j,k=1;
+    printf(ANSI_COLOR_RED"    MATRIX PUZZLE\n"ANSI_COLOR_RESET);
+    printf(ANSI_COLOR_RED"\nRules For This Game :\n"ANSI_COLOR_RESET);
+    printf(ANSI_COLOR_RED" 1. You can only move 1 Step at a time by arrow key\n\n"ANSI_COLOR_RESET);
+    printf("   Move UP : by UP arrow key\n");
+    printf("   Move DOWN : by DOWN arrow key\n");
+    printf("   Move RIGHT : by RIGHT arrow key\n");
+    printf("   Move LEFT : by LEFT arrow key\n");
+    printf(ANSI_COLOR_RED"\n2. You can move number at empty position only\n"ANSI_COLOR_RESET);
+    printf(ANSI_COLOR_RED" \n3. For each valid move : your total number of move will decreased by 1 \n"ANSI_COLOR_RESET);
+    printf(ANSI_COLOR_RED"\n4. Wining situation :  Number in a 4*4 matrix should be in order from 1 to 15\n\n"ANSI_COLOR_RESET);
+    printf(ANSI_COLOR_RED"    Wining situation :\n\n"ANSI_COLOR_RESET);
+
+    printf(ANSI_COLOR_YELLOW"--------------------------\n"ANSI_COLOR_RESET);
+    for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
+            if((a[i][j])!=0){
+                printf("  %2d |",4*i+j+1);
+            }
+            else
+                printf("     |");
+        }
+        printf("\n");
+    }
+    printf(ANSI_COLOR_YELLOW"--------------------------\n"ANSI_COLOR_RESET);
+    printf("\n5. You can exit the game at any time by pressing 'E' or 'e' ");
+    printf("\n6. So Try to win");
+    printf(ANSI_COLOR_MAGENTA"\n\n   Enter any key to Start-->\n"ANSI_COLOR_RESET);
+    int x=enterdkey();
+}
+int winner(int a[][4]){
+  int i,j,k=1;
+  for(i=0;i<4;i++){
+    for(j=0;j<4;j++,k++){
+        if(a[i][j]!=k && k!= 16)
+            break;
+    }
+    if(j<4)
+            break;
+    }
+  if(j<4)
+    return 0;
+  return 1;
+}
+void showMatrix(int a[][4]){
+   int  i,j;
+   printf("--------------------------\n");
+   for(i=0;i<4;i++){
+    for(j=0;j<4;j++){
+        if(a[i][j]!=0)
+            printf("  %2d |",a[i][j]);
+        else
+            printf("     | ");
+    }
+    printf("\n");
+   }
+   printf("--------------------------\n");
+}
+int enterdkey(){
+ char c;
+ c=_getch();
+ if(c== -32)
+    c=_getch();
+ return c;
+}
+void swap(int *p, int *q){
+   *p = *p + *q;
+   *q = *p - *q;
+   *p = *p - *q;
+   printf("");
+}
+
+int shiftUp(int a[][4]){
+    int i,j;
+  for  (i=0;i<4;i++){
+    for (j=0;j<4;j++)
+            if(a[i][j]==0)
+              break;
+    if(j<4)
+        break;
+  }
+  if(i==3)
+    return 0;
+  swap(&a[i][j],&a[i+1][j]);
+   return 1;
+
+}
+int shiftDown(int a[][4]){
+    int i,j;
+    for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
+            if(a[i][j]==0)
+                break;
+        }
+        if(j<4)
+            break;
+    }
+    if(i==0)
+        return 0;
+    swap(&a[i][j],&a[i-1][j]);
+    return 1;
+}
+int shiftRight(int a[][4]){
+      int i,j;
+      for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
+            if(a[i][j]==0)
+                break;
+        }
+        if(j<4)
+            break;
+      }
+      if(j==0)
+        return 0;
+      swap(&a[i][j], &a[i][j-1]);
+}
+int shiftLeft(int a[][4]){
+   int i,j;
+   for (i=0;i<4;i++){
+    for(j=0;j<4;j++){
+        if(a[i][j]==0)
+            break;
+    }
+    if(j<4)
+        break;
+   }
+   if(j==3)
+    return 0;
+   swap(&a[i][j], &a[i][j+1]);
+   return 1;
+}
+
