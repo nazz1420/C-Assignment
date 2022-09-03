@@ -1,0 +1,135 @@
+1. print Hello MySirG on the screen.
+
+#include<iostream>
+int main()
+{
+  std::cout<<"Hello MySirG";
+  return 0;
+}
+
+2. print Hello on the first line and MySirG on the 
+second line using endl.
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+  std::cout<<"Hello"<<endl<<"MySirG";
+  return 0;
+
+}
+
+3. calculate the sum of two numbers.
+
+#include<iostream>
+int main()
+{
+  int a,b,c;
+  std::cout<<"Enter two numbers";
+  std::cin>>a>>b;
+  c=a+b;
+  std::cout<<"The Sum of "<<a<<" and "<<b<<" is : "<< c;
+  return 0;
+}
+
+4.  calculate the area of a circle
+
+#include<iostream>
+int main()
+{
+  float A,r,pi=3.14;
+  std::cout<<"Enter radius";
+  std::cin>>r;
+  A = pi*r*r;
+  std::cout<<"The aria of circle is : "<< A;
+  return 0;
+}
+
+5.  calculate the volume of a cuboid.
+
+#include<iostream>
+int main()
+{
+  int V,h,l,w;
+  std::cout<<"Enter length width and height of cuboid : ";
+  std::cin>>h>>l>>w;
+  V = l*w*h;
+  std::cout<<"The volume of cuboid is : "<< V;
+  return 0;
+}
+
+6. calculate an average of 3 numbers.
+
+#include<iostream>
+int main()
+{
+  int Avrg, a, b, c;
+  std::cout<<"Enter three numbers : ";
+  std::cin>>a>>b>>c;
+  Avrg = a+b+c/3;
+  std::cout<<"The Average of "<<a<<" "<<b<<" and "<<c<<" is : "<<Avrg ;
+  return 0;
+}
+
+
+7. calculate the square of a number
+
+#include<iostream>
+int main()
+{
+  int Sqr, x;
+  std::cout<<"Enter a number : ";
+  std::cin>>x;
+  Sqr = x*x;
+  std::cout<<"The Square of "<<x<<" is : "<<Sqr ;
+  return 0;
+}
+
+8.  swap values of two int variables without using third variable
+
+#include<iostream>
+int main()
+{
+  int  x,y;
+  std::cout<<"Enter two number : ";
+  std::cin>>x>>y;
+  std::cout<<"The entered value is : "<<x<<" "<<y;
+  x = x+y;
+  y = x-y;
+  x = x-y;
+  std::cout<<"\nThe swap value is : "<<x<<" "<<y;
+  return 0;
+}
+
+9. find the maximum of two numbers.
+
+#include<iostream>
+int main()
+{
+  int  x,y;
+  std::cout<<"Enter two number : ";
+  std::cin>>x>>y;
+  if(x>y)
+    std::cout<<"\nThe max value is : "<<x;
+  else
+    std::cout<<"The max value is : "<<y;
+  return 0;
+
+}
+
+10. add all the numbers of an array of size 10.
+
+#include<iostream>
+int main()
+{
+  int  a[10],i,sum=0;
+  std::cout<<"Enter 10 number : ";
+  for(i=0;i<10;i++)
+    std::cin>>a[i];
+  for(i=0;i<10;i++)
+    sum = sum + a[i];
+  std::cout<<"Sum of an array elements : "<<sum;
+  return 0;
+
+}
